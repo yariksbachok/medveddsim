@@ -1,0 +1,50 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>MAIN PAGE</title>
+
+    <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <script src="{% static 'fonts/script.js' %}"></script>
+</head>
+<body>
+{% include 'include/header_not_reg.html' %}
+<div class="auth">
+    <form method="POST">
+        <h1>Регистрация</h1>
+        {% if eror_user %}
+                <h1>{{ eror_user }}</h1>
+        {% endif %}
+        <div class="auth_block">
+            <label for="name"><b>Имя пользователя:</b></label>
+            <input type="name_input" name="name" required>
+        </div>
+        <p>Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.</p>
+        <ul>
+            <li>- Ваш пароль не должен совпадать с вашим именем или другой персональной информацией или быть слишком похожим на неё.</li>
+            <li>- Ваш пароль должен содержать как минимум 8 символов.</li>
+            <li>- Ваш пароль не может быть одним из широко распространённых паролей.</li>
+            <li>- Ваш пароль не может состоять только из цифр.</li>
+        </ul>
+        <div class="auth_block">
+            <label for="psw"><b>Парроль</b></label>
+            <input type="psw_input" name="psw" required>
+        </div>
+        <div class="auth_block">
+            <label for="retpsw"><b>Подтверждение пароля:</b></label>
+            <input type="ret_psw_input" name="retpsw" required>
+        </div>
+        <p>Для подтверждения введите, пожалуйста, пароль ещё раз.</p>
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+{% include 'include/footer_two.html' %}
+</body>
+</html>>

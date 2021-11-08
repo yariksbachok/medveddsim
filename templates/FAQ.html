@@ -1,0 +1,236 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>MAIN PAGE</title>
+
+    <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+            crossorigin="anonymous"
+        >
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"
+        ></script>
+</head>
+<body>
+{% if reqister %}
+    <header class="wrappers">
+        <div class="row">
+            <div class="header_burger">
+                <div class="for_burger">
+                    <a href="#"><img class="img_logo" src="{% static '/img/logo.jpg' %}"></a>
+                    <div class="btn_burger", onclick="myFunction()">
+                        <span></span>
+                    </div>
+                </div>
+                <ul class="just_ul">
+                    <li><a href="/rent_active"><img src="{% static '/img/rent_logo.gif' %}"></a></li>
+                    <li><a href="/FAQ">FAQ/Контакты</a></li>
+                    <li><a href="#">API</a> </li>
+                    <li><a href="/free_number">Бесплатные номера</a></li>
+                    <li><a href="/active_number">Активные номера</a></li>
+                    <li><a href="/pay">Баланс: 0,00р.</a></li>
+                    <li onclick="myuser()"><a>{{ username }}</a></li>
+                    <ul class="user_ul">
+                        <li><a href="/my_profile">Личный кабинет</a>></li>
+                        <li><a href="#">История операций</a></li>
+                        <li><a href="#">Пополнить баланс</a></li>
+                        <li><a href="#">Повторный прием СМС</a></li>
+                        <li><a href="/change_password">Сменить пароль</a></li>
+                        <li><a href="/exit">Выход</a>></li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="header_right">
+                <div><li><a href="/main"><img class="img_logo" src="{% static '/img/logo.jpg' %}"></a></li></div>
+                <div><li><a href="/rent_active">Аренда по сервисам</a></li></div>
+                <div><li><a href="/rent_time">Аренда по времени</a></li></div>
+                <div><li><a href="https://ru.freepik.com/premium-vector/404-error-web-template-with-cute-doggy_2234124.html">Мобильные прокси</a></li></div>
+                <div><li><a href="/FAQ">FAQ/Контакты</a></li></div>
+            </div>
+            <div class="header_left_top">
+                <div><li><a href="/active_number">Активные номера</a></li></div>
+                <div><li><a href="#">Баланс: 0,00р.</a></li></div>
+                <div class="dropdown">
+                    <button class="dropbtn">{{ username }}</button>
+                    <divs class="dropdown-content">
+                        <a href="/my_profile">Личный кабинет</a>
+                        <a href="#">История операций</a>
+                        <a href="#">Пополнить баланс</a>
+                        <a href="#">Повторный прием СМС</a>
+                        <a href="/change_password">Сменить пароль</a>
+                        <a href="/exit">Выход</a>
+                    </divs>
+                </div>
+
+            </div>
+        </div>
+    </header>
+{% else %}
+    <header class="wrapper">
+        <div class="row">
+            <div class="header_burger">
+                <div class="for_burger">
+                    <a href="#"><img class="img_logo" src="{% static '/img/logo.jpg' %}"></a>
+                    <div class="btn_burger", onclick="myFunction()">
+                        <span></span>
+                    </div>
+                </div>
+                <ul class="just_ul">
+                    <li><a href="/rent_active"><img src="{% static '/img/rent_logo.gif' %}"></a></li>
+                    <li><a href="/FAQ">FAQ/Контакты</a></li>
+                    <li><a href="#">API</a> </li>
+                    <li><a href="/free_number">Бесплатные номера</a></li>
+                    <li><a href="/exit">Вход</a></li>
+                    <li><a href="/req_auth">Регистрация</a></li>
+                </ul>
+            </div>
+            <div class="header_right">
+                <div><li><a href="/main"><img class="img_logo" src="{% static '/img/logo.jpg' %}"></a></li></div>
+                <div><li><a href="/rent_active">АРЕНДА</a></li></div>
+                <div><li><a href="/FAQ">FAQ/Контакты</a></li></div>
+            </div>
+            <div class="header_left_top">
+                <div><li><a href="/exit">Вход</a></li></div>
+                <div><li><a href="/req_auth">Регистрация</a></li></div>
+
+            </div>
+        </div>
+    </header>
+{% endif %}
+
+<div class="conteiner">
+    <div class="wrapper">
+        <div class="conteiner_news">
+            <div class="news">
+                <div class="just_number">
+                    <h2>FAQ/Контакты</h2>
+                    <div class="panel-group" id="faq_accordion" role="tablist" aria-multiselectable="false">
+                        <div class="panel panel-default">
+                           <div id="feedback" class="panel-heading" role="tab">
+                               <h4 class="panel-title">
+                                   <a role="button" data-toggle="collapse" data-parent="#faq_accordion" href="#feedback_content" aria-expanded="false" aria-controls="feedback_content" class="collapsed">
+                                       Обратная связь
+                                   </a>
+                               </h4>
+                           </div>
+               
+                           <div id="feedback_content" class="panel-collapse collapse" role="tabpanel" aria-labelledby="feedback" aria-expanded="false" style="height: 0px;">
+                               <div class="panel-body">
+                                   <strong>Получайте самые свежие новости в Telegram первыми: <a href="https://t.me/get_sms_vf">@get_sms_vf</a></strong>
+                                   <br>
+                                   На данном канале в Telegram вы будете видеть новости сервиса и информацию о поступлении новых номеров
+                                   <br><br>
+               
+                                   Для связи с администрацией сайта используйте:<br>
+                                   Telegram: <a href="https://t.me/GetSMSvf">@GetSMSvf</a><br>
+                                   Jabber: <strong>get.sms@exploit.im</strong><br>
+                                   ICQ: <strong>716103088</strong>
+                               </div>
+                           </div>
+                       </div>
+                       
+                       <div class="panel panel-default">
+                           <div id="conditions" class="panel-heading" role="tab">
+                               <h4 class="panel-title">
+                                   <a role="button" data-toggle="collapse" data-parent="#faq_accordion" href="#conditions_content" aria-expanded="false" aria-controls="conditions_content" class="collapsed">
+                                       Условия использования
+                                   </a>
+                               </h4>
+                           </div>
+               
+                           <div id="conditions_content" class="panel-collapse collapse" role="tabpanel" aria-labelledby="conditions" aria-expanded="false" style="height: 0px;">
+                               <div class="panel-body">
+                                   <p>1. Запрещено использование сервиса для осуществления платных подписок.</p>
+                                   <p>2. Стоимость активаций указана справа от интересующего сервиса, цена может меняться как в сторону уменьшения, так и в сторону увеличения - проверяйте цену перед каждой покупкой.</p>
+                                   <p>3. Прежде чем пополнять баланс, убедитесь, что на сайте есть нужные Вам сервисы и страны. Возврат средств не предусмотрен. По спорным вопросам обращайтесь <a href="#feedback_content" data-toggle="collapse" data-parent="#faq_accordion" aria-expanded="false" aria-controls="how_to_use_content" class="collapsed">Обратная связь</a> </p>
+                                   <p>4. Запрещается тестировать СПАМ-сервисы на предоставленные номера, при выявлении подобных случаев - блокировка аккаунта без возврата баланса.</p>
+                                   <p>5. Запрещается приём сервисных СМС (СМС от обслуживаемого оператора связи), при выявлении подобных случаев - блокировка аккаунта без возврата баланса.</p>
+                               </div>
+                           </div>
+                       </div>
+                       
+                       <div class="panel panel-default">
+                           <div id="how_to_use" class="panel-heading" role="tab">
+                               <h4 class="panel-title">
+                                   <a role="button" data-toggle="collapse" data-parent="#faq_accordion" href="#how_to_use_content" aria-expanded="false" aria-controls="how_to_use_content" class="collapsed">
+                                       Как пользоваться сервисом активаций?
+                                   </a>
+                               </h4>
+                           </div>
+               
+                           <div id="how_to_use_content" class="panel-collapse collapse" role="tabpanel" aria-labelledby="how_to_use" aria-expanded="false">
+                               <div class="panel-body">
+                                       <p><strong>СМС Активации - Вы получаете номер на 20 минут под ВЫБРАННЫЙ сервис, количество СМС при этом не ограничено.</strong></p><p>
+                                   </p><p><a href="/getNumbers/">Активации</a></p> <p></p>
+                                   <p><b>1.</b> Нажать кнопку "Получить" напротив необходимого Вам сервиса. Номер резервируется за вами на 20 минут.</p>
+                                   <p><b>2.</b> После нажатия на кнопку получить, вы попадаете на страницу <a href="/getNumbers/">Активные номера</a>, нажимаем кнопку "Отправлено".</p>
+                                   <p><b>3.</b> Теперь вам необходимо указать полученный номер телефона в выбранном Вами сервисе.</p>
+                                       <p><strong>Для лучшей обработки СМС рекомендуется сначала нажимать "Отправлено", а уже потом отправлять СМС из сервиса</strong></p><p>
+                                       В случае, если номер не может быть использован в данной соц. сети, то необходимо нажать кнопку "Забанен".
+                                       Если вы передумали регистрировать аккаунт, нажмите кнопку "Отменить" и деньги вернуться вам на счет.</p>
+                                   <p><b>4.</b> Ожидаем СМС от сервиса. Время ожидания 20 минут. Если нет СМС с кодом, через 20 минут деньги возвращаются Вам на счет.</p>
+                                   <p><b>5.</b> Когда код получен, сервис выдаст его в поле "СМС-код"</p>
+                                   <p><b>6.</b> Теперь вам необходимо ввести полученный код из СМС в поле подтверждения в Вашем сервисе.</p>
+                                   <p>Все готово. Можете пользоваться зарегистрированным аккаунтом.</p>
+                               </div>
+                           </div>
+                       </div>
+                     
+                        <div class="panel panel-default">
+                           <div id="feedback" class="panel-heading" role="tab">
+                               <h4 class="panel-title">
+                                   <a role="button" data-toggle="collapse" data-parent="#faq_accordion" href="#rent_number" aria-expanded="false" aria-controls="feedback_content" class="collapsed">
+                                       Как пользоваться арендой номера?
+                                   </a>
+                               </h4>
+                           </div>
+               
+                           <div id="rent_number" class="panel-collapse collapse" role="tabpanel" aria-labelledby="feedback" aria-expanded="false">
+                               <div class="panel-body">
+                                   <p><strong>Аренда номера - Вы получаете ВСЕ входящие СМС на приобретенный номер. Продление аренды возможно только ДО окончания срока действия аренды. Минимальный срок аренды - 1 час, максимальный - неограничен.</strong></p><p>
+                                   <a href="/numbers_rent/">Аренда</a>
+                                   </p><p><b>1.</b> Выбрать необходимую страну для аренды номера.</p>
+                                   <p><b>2.</b> Выбрать необходимый срок аренды.</p>
+                                   <p><b>3.</b> Нажать кнопку "Арендовать"</p>
+                                   <p><b>4.</b> Номер и все входящие смс будет отображаться на вкладке "Аренда" (в разделе "Активные номера" СМС с арендованных номеров не отображается).</p>
+                                   <p><b>5.</b> Для подтверждения аренды необходимо принять СМС на арендованный номер в течение первых 20 минут, если за 20 минут СМС не будет получено, то номер отменится и средства вернутся на баланс</p>
+                                   <p><b>6.</b> После истечения срока аренды номер и СМС хранятся в разделе 1 месяц, а затем удаляются.</p>
+                               </div>
+                           </div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="content_footer_two">
+    <div class="wrapper">
+        <div class="text_foter">
+            <p>© 2016-2020, GetSMSvf. Все права защищены</p>
+        </div>
+    </div>
+</footer>
+<script src="{ % static 'fonts/script.js'%}"></script>
+</body>
+</html>

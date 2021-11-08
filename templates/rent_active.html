@@ -1,0 +1,271 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>MAIN PAGE</title>
+
+    <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <script src="{% static 'fonts/script.js' %}"></script>
+</head>
+<body>
+{% if reqister %}
+    {% include 'include/header_reg.html' %}
+{% else %}
+    {% include 'include/header_not_reg.html' %}
+{% endif %}
+<div class="conteiner">
+    <div class="wrapper">
+        <div class="conteiner_news">
+            <div class="news">
+                <div class="active_number">
+                    <h2>Аренда номеров</h2>
+                    <p>Неограниченное количество смс от любых сервисов на выбранный период времени</p>
+                    <br>
+                    <p>Баланс: <strong>0,00 руб.</strong></p>
+                </div>
+                <div class="choose_number">
+                    <hr>
+                    <div class="number_vvvv">
+                        <div class="setting_choose_number">
+                            <div class="choose_country">
+                                <h1>Страна: {{ contry }}</h1>
+                                <br>
+                                <h1>Выберите страну:</h1>
+                                    <select onchange="show(this.value)">
+                                        <option value="{{ ur }}country=NDN">+31 Netherlands (NL)</option>
+                                        <option value="{{ ur }}country=USA">+1 USA (US)</option>
+                                        <option value="{{ ur }}country=KNK">+1 Canada (CA)</option>
+                                        <option value="{{ ur }}country=FRF">+33 France (FR)</option>
+                                        <option value="{{ ur }}country=ISI">+34 Spain (ES)</option>
+                                        <option value="{{ ur }}country=AVA">+43 Austria (AT)</option>
+                                        <option value="{{ ur }}country=UKU">+44 England (UK)</option>
+                                        <option value="{{ ur }}country=GER">+49 Germany (DE)</option>
+                                        <option value="{{ ur }}country=RUS">+7 Russia (RU)</option>
+                                    </select>
+                                <h2>Баз. ставка: <strong id="mystrong">.</strong> руб</h2>
+                                <small>Доступно номеров: {{ n }}</small>
+                                <br>
+                                <br>
+                                <a name="buy_all"><button class="buy_number_all">Купить</button></a>
+                            </div>
+                        </div>
+                        <div class="three_block_flex">
+                            <div class="text_chose_number">
+                                <h1>Часы</h1>
+                                <br>
+                                <br>
+                                <h1>Дни</h1>
+                                <br>
+                                <br>
+                                <h1>Недели</h1>
+                                <br>
+                                <br>
+                                <h1>Месяцы</h1>
+                                <br>
+                                <br>
+                            </div>
+                            <div class="button_and_number">
+                                <div class="your_number">
+                                    <p>1</p>
+                                    <p>2</p>
+                                    <p>3</p>
+                                    <p>4</p>
+                                    <p>5</p>
+                                </div>
+                                <div class="your_button">
+                                    <button id="hors1" onclick="choose(this.id)"></button>
+                                    <button id="hors2" onclick="choose(this.id)"></button>
+                                    <button id="hors3" onclick="choose(this.id)"></button>
+                                    <button id="hors4" onclick="choose(this.id)"></button>
+                                    <button id="hors5" onclick="choose(this.id)"></button>
+                                </div>
+                                <div class="your_number">
+                                    <p>1</p>
+                                    <p>2</p>
+                                    <p>3</p>
+                                    <p>4</p>
+                                </div>
+                                <div class="your_button">
+                                    <button id="day1" onclick="choose(this.id)"></button>
+                                    <button id="day2" onclick="choose(this.id)"></button>
+                                    <button id="day3" onclick="choose(this.id)"></button>
+                                    <button id="day4" onclick="choose(this.id)"></button>
+                                </div>
+                                <div class="your_number">
+                                    <p>1</p>
+                                    <p>2</p>
+                                    <p>3</p>
+                                </div>
+                                <div class="your_button">
+                                    <button id="week1" onclick="choose(this.id)"></button>
+                                    <button id="week2" onclick="choose(this.id)"></button>
+                                    <button id="week3" onclick="choose(this.id)"></button>
+                                </div>
+                                <div class="your_number">
+                                    <p>1</p>
+                                    <p>2</p>
+                                </div>
+                                <div class="your_button">
+                                    <button id="mon1" onclick="choose(this.id)"></button>
+                                    <button id="mon2" onclick="choose(this.id)"></button>
+                                </div>
+                            </div>
+                            <div class="button_phone">
+                                <p>100,0 руб.</p>
+                                <br>
+                                <br>
+                                <p>300,0 руб.</p>
+                                <br>
+                                <br>
+                                <p>1000,0 руб.</p>
+                                <br>
+                                <br>
+                                <p>3000,0 руб.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="all_all_numbers">
+                    {% for key in ites %}
+                        <div class="num_block">
+                            <button id="{{ key.id }}" onclick="bay_nums(this.id)"></button>
+                            <div class="button_content">
+                                <h1>{{ key.name_company }}</h1>
+                                {% for k, v in numbers.items %}
+                                    {% if k ==  key.name_company %}
+                                        <b>Доступно {{ v }}шт. 50 Р в день</b>
+                                    {% endif %}
+                                {% endfor %}
+                                <p>Скидка 30% при аренди от 30 дней</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+    </div>
+</div>
+<script>
+    function bay_nums(id){
+        console.log(id)
+        var els=document.getElementsByName("buy_all");
+        els[0].href = '/activeite/?id='+id
+    }
+    function show(value){
+        document.location.href = value
+    }
+    function choose(el){
+
+        var h = 0
+        var d = 0
+        var w =0
+        var m = 0
+        try {
+                var st = el.replace(/[\d\.]+$/, '');
+                document.getElementById(st+1).classList.remove('your_but');
+                document.getElementById(st+2).classList.remove('your_but');
+                document.getElementById(st+3).classList.remove('your_but');
+                document.getElementById(st+4).classList.remove('your_but');
+                document.getElementById(st+5).classList.remove('your_but');
+        } catch{
+        }
+        document.getElementById(el).classList.toggle('your_but');
+
+        if(document.getElementById('hors1').classList.contains('your_but')){
+            h = 100
+            document.getElementById('hors1').setAttribute('name', 'hors1');
+        }else{
+            document.getElementById('hors1').removeAttribute('name');
+        }
+        if(document.getElementById('hors2').classList.contains('your_but')){
+            h = 200
+            document.getElementById('hors2').setAttribute('name', 'hors2');
+        }else{
+            document.getElementById('hors2').removeAttribute('name');
+        }
+        if(document.getElementById('hors3').classList.contains('your_but')){
+            h = 300
+            document.getElementById('hors3').setAttribute('name', 'hors3');
+        }else{
+            document.getElementById('hors3').removeAttribute('name');
+        }
+        if(document.getElementById('hors4').classList.contains('your_but')){
+            h = 400
+            document.getElementById('hors4').setAttribute('name', 'hors4');
+        }else{
+            document.getElementById('hors4').removeAttribute('name');
+        }
+        if(document.getElementById('hors5').classList.contains('your_but')){
+            h = 500
+            document.getElementById('hors5').setAttribute('name', 'hors5');
+        }else{
+            document.getElementById('hors5').removeAttribute('name');
+        }
+        if(document.getElementById('day1').classList.contains('your_but')){
+            d = 300
+            document.getElementById('day1').setAttribute('name', 'day1');
+        }else{
+            document.getElementById('day1').removeAttribute('name');
+        }
+        if(document.getElementById('day2').classList.contains('your_but')){
+            d = 600
+            document.getElementById('day2').setAttribute('name', 'day2');
+        }else{
+            document.getElementById('day2').removeAttribute('name');
+        }
+        if(document.getElementById('day3').classList.contains('your_but')){
+            d = 900
+            document.getElementById('day3').setAttribute('name', 'day3')
+        }else{
+            document.getElementById('day3').removeAttribute('name');
+        }
+        if(document.getElementById('day4').classList.contains('your_but')){
+            d = 1200
+            document.getElementById('day4').setAttribute('name', 'day4')
+        }else{
+            document.getElementById('day4').removeAttribute('name');
+        }
+        if(document.getElementById('week1').classList.contains('your_but')){
+            w = 1000
+            document.getElementById('week1').setAttribute('name', 'week1')
+        }else{
+            document.getElementById('week1').removeAttribute('name');
+        }
+        if(document.getElementById('week2').classList.contains('your_but')){
+            w = 2000
+            document.getElementById('week2').setAttribute('name', 'week2')
+        }else{
+            document.getElementById('week2').removeAttribute('name');
+        }
+        if(document.getElementById('week3').classList.contains('your_but')){
+            w = 3000
+            document.getElementById('week3').setAttribute('name', 'week3')
+        }else{
+            document.getElementById('week3').removeAttribute('name');
+        }
+        if(document.getElementById('mon1').classList.contains('your_but')){
+            m = 3000
+            document.getElementById('mon1').setAttribute('name', 'mon1')
+        }else{
+            document.getElementById('mon1').removeAttribute('name');
+        }
+        if(document.getElementById('mon2').classList.contains('your_but')){
+            m = 6000
+            document.getElementById('mon2').setAttribute('name', 'mon2')
+        }else{
+            document.getElementById('mon2').removeAttribute('name');
+        }
+        var sum = h + d + w + m
+        document.getElementById("mystrong").innerHTML=sum;
+    }
+</script>
+{% include 'include/footer_two.html' %}
+</body>
+
+</html>

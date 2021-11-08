@@ -1,0 +1,165 @@
+{% load static %}
+<script type="text/javascript" src="{% static 'fonts/script.js' %}"></script>
+<div class="buy_smss">
+    <div class="number_phone">
+                    <div class="one_number_phone">
+                        <a href="#"><img src="{% static '/img/iconfinder_flag-canada.png' %}"></a>
+
+                        {% if url %}
+                            <a href="{{ url }}country=KNK&limit=Отключен"><p>+1 Canada (CA)</p></a>
+                        {% else %}
+                            <a href="?country=KNK&limit=Отключен"><p>+1 Canada (CA)</p></a>
+                        {% endif %}
+
+                    </div>
+                    <div class="one_number_phone">
+                        <a><img src="{% static '/img/iconfinder_flag-usa.png' %}"></a>
+
+                        {% if url %}
+                            <a href="{{ url }}country=USA&limit=Отключен"><p>+1 USA (US)</p></a>
+                        {% else %}
+                            <a href="?country=USA&limit=Отключен"><p>+1 USA (US)</p></a>
+                        {% endif %}
+
+                    </div>
+                    <div class="one_number_phone">
+                        <a href="#"><img src="{% static '/img/iconfinder_flag-russia2x.png' %}"></a>
+
+                        {% if url %}
+                            <a href="{{ url }}country=RUS&limit=Отключен"><p>+7 Russia (RU)</p></a>
+                        {% else %}
+                            <a href="?country=RUS&limit=Отключен"><p>+7 Russia (RU)</p></a>
+                        {% endif %}
+
+                    </div>
+                    <div class="one_number_phone">
+                        <a href="#"><img src="{% static '/img/iconfinder_flag-the-netherlands.png' %}"></a>
+
+                        {% if url %}
+                            <a href="{{ url }}country=NDN&limit=Отключен"><p>+31 Netherlands (NL)</p></a>
+                        {% else %}
+                            <a href="?country=NDN&limit=Отключен"><p>+31 Netherlands (NL)</p></a>
+                        {% endif %}
+
+                    </div>
+                    <div class="one_number_phone">
+                        <a href="#"><img src="{% static '/img/iconfinder_flag-france.png' %}"></a>
+
+                        {% if url %}
+                            <a href="{{ url }}country=FRF&limit=Отключен"><p>+33 France (FR)</p></a>
+                        {% else %}
+                            <a href="?country=FRF&limit=Отключен"><p>+33 France (FR)</p></a>
+                        {% endif %}
+
+                    </div>
+                    <div class="one_number_phone">
+                        <a href="#"><img src="{% static '/img/iconfinder_flag-spain.png' %}"></a>
+
+                        {% if url %}
+                            <a href="{{ url }}country=ISI&limit=Отключен"><p>+34 Spain (ES)</p></a>
+                        {% else %}
+                            <a href="?country=ISI&limit=Отключен"><p>+34 Spain (ES)</p></a>
+                        {% endif %}
+
+                    </div>
+                    <div class="one_number_phone">
+                        <a href="#"><img src="{% static '/img/iconfinder_flag-italy.png' %}"></a>
+
+                        {% if url %}
+                            <a href="{{ url }}country=ITI&limit=Отключен"><p>+39 Italy (IT)</p></a>
+                        {% else %}
+                            <a href="?country=ITI&limit=Отключен"><p>+39 Italy (IT)</p></a>
+                        {% endif %}
+
+                    </div>
+                    <div class="one_number_phone">
+                        <a href="#"><img src="{% static '/img/iconfinder_flag-austria.png' %}"></a>
+
+                        {% if url %}
+                            <a href="{{ url }}country=AVA&limit=Отключен"><p>+43 Austria (AT)</p></a>
+                        {% else %}
+                            <a href="?country=AVA&limit=Отключен"><p>+43 Austria (AT)</p></a>
+                        {% endif %}
+
+                    </div>
+                    <div class="one_number_phone">
+                        <a href="#"><img src="{% static '/img/iconfinder_flag-united-kingdom.png' %}"></a>
+
+                        {% if url %}
+                            <a href="{{ url }}country=UKU&limit=Отключен"><p>+44 England (UK)</p></a>
+                        {% else %}
+                            <a href="?country=UKU&limit=Отключен"><p>+44 England (UK)</p></a>
+                        {% endif %}
+
+                    </div>
+                    <div class="one_number_phone">
+                        <a href="#"><img src="{% static '/img/iconfinder_flag-germany.png' %}"></a>
+                        {% if url %}
+                            <a href="{{ url }}country=GER&limit=Отключен"><p>+49 Germany (DE)</p></a>
+                        {% else %}
+                            <a href="?country=GER&limit=Отключен"><p>+49 Germany (DE)</p></a>
+                        {% endif %}
+
+                    </div>
+                </div>
+                <div class="filter_buy_sms">
+                    <label>Фильтр</label>
+                    <select id="dropdownWrapper" onchange="filter_chagne(this)">
+                        <option value="01">Отключен</option>
+                        <option value="1">1 день</option>
+                        <option value="2">3 дня</option>
+                        <option value="3">1 неделя</option>
+                        <option value="4">2 недели</option>
+                        <option value="5">1 месяц</option>
+                        <option value="6">2 месяца</option>
+                    </select>
+                </div>
+                <div class="update_num_container">
+                {% for key in ite %}
+                    {% for k, v in what.items %}
+                        {% if k ==  key.name_company %}
+                            {% if v == '1 день' %}
+                                <div class="update_num show" item_id="1">
+
+                            {% elif v == '3 дня' %}
+                                <div class="update_num show" item_id="2">
+
+                            {% elif v == '1 неделя' %}
+                                <div class="update_num show" item_id="3">
+
+                            {% elif v == '2 недели' %}
+                                <div class="update_num show" item_id="4">
+
+                            {% elif v == '1 месяц' %}
+                                <div class="update_num show" item_id="5">
+
+                            {% elif v == '2 месяца' %}
+                                <div class="update_num show" item_id="6">
+
+                            {% elif v == 'Отключен' %}
+                                <div class="update_num show" item_id="01">
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+
+                                    <hr>
+                                    <div class="table_num">
+                                        <div class="table_number_right">
+                                            <img src="{{ key.photo_company.url }}">
+                                            <h2>{{ key.name_company }}</h2>
+                                        </div>
+                                        <div class="table_number_left">
+                                            <a href="#"><img src="{% static '/img/star.svg' %}"></a>
+                                            {% for k, v in number.items %}
+                                                {% if k ==  key.name_company %}
+                                                    <p>{{ v }}шт.</p>
+                                                {% endif %}
+                                            {% endfor %}
+                                            <P>{{ key.usasq }}$/{{ key.rubsq }}P</P>
+                                            <a href="/activeite/?id={{ key.id }}"><button>Получить</button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                {% endfor %}
+                </div>
+</div>

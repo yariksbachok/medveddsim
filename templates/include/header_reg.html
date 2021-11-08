@@ -1,0 +1,48 @@
+{% load static %}
+<header class="wrapper">
+    <div class="header_burger">
+        <div class="for_burger">
+            <a href="#"><img class="img_logo" src="{% static '/img/logo.jpg' %}"></a>
+            <div class="btn_burger", onclick="myFunction()">
+                <span></span>
+            </div>
+        </div>
+        <ul class="just_ul">
+            <li><a href="/rent_time">Аренда по времени</a></li>
+            <li><a href="/rent_active">Аренда по сервисам</a></li>
+            <li><a href="https://ru.freepik.com/premium-vector/404-error-web-template-with-cute-doggy_2234124.html">Мобильные прокси</a></li>
+            <li><a href="/FAQ">FAQ/Контакты</a></li>
+            <li><a href="/active_number">Активные номера</a></li>
+            <li><a href="/pay">Баланс: 0,00р.</a></li>
+            <li onclick="myuser()"><a>{{ username }}</a></li>
+            <ul class="user_ul">
+                <li><a href="/my_profile">Личный кабинет</a>></li>
+                <li><a href="#">Пополнить баланс</a></li>
+                <li><a href="#">Повторный прием СМС</a></li>
+                <li><a href="/change_password">Сменить пароль</a></li>
+                <li><a href="/exit">Выход</a>></li>
+            </ul>
+        </ul>
+    </div>
+        <div class="header_right">
+            <div><li><a href="/main"><img class="img_logo" src="{% static '/img/logo.jpg' %}"></a></li></div>
+            <div><li><a href="/rent_active">Аренда по сервисам</a></li></div>
+            <div><li><a href="/rent_time">Аренда по времени</a></li></div>
+            <div><li><a href="https://ru.freepik.com/premium-vector/404-error-web-template-with-cute-doggy_2234124.html">Мобильные прокси</a></li></div>
+            <div><li><a href="/FAQ">FAQ/Контакты</a></li></div>
+        </div>
+        <div class="header_left">
+            <div><li><a href="/active_number">Активные номера</a></li></div>
+            <div><li><a href="/pay">Баланс: 0,00р.</a></li></div>
+            <div class="dropdown">
+                    <button class="dropbtn">{{ username }}</button>
+                    <divs class="dropdown-content">
+                        <a href="/my_profile">Личный кабинет</a>
+                        <a href="#">Пополнить баланс</a>
+                        <a href="#">Повторный прием СМС</a>
+                        <a href="/change_password">Сменить пароль</a>
+                        <a href="/exit">Выход</a>
+                    </divs>
+            </div>
+        </div>
+</header>

@@ -1,0 +1,100 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>MAIN PAGE</title>
+
+    <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <script src="{% static 'fonts/script.js' %}"></script>
+</head>
+<body>
+{% if reqister %}
+    {% include 'include/header_reg.html' %}
+{% else %}
+    {% include 'include/header_not_reg.html' %}
+{% endif %}
+<div class="conteiner">
+    <div class="wrapper">
+        <div class="conteiner_news">
+            <div class="news">
+                <div class="free_number">
+                    <h2>Бесплатные номера для приема смс от любых сервисов</h2>
+                </div>
+                <div class="one_block_free_number">
+                    <div class="one_block">
+                        <div class="img_and_title_block">
+                            <img src="{% static '/img/iconfinder_flag-usa.png' %}">
+                            <p>+1 USA (US)</p>
+                        </div>
+                        <h1>19373077249</h1>
+                        <p>Количество смс: <strong>617</strong></p>
+                        <p>Номер добавлен: </p>
+                        <strong>20.04.2021</strong>
+                    </div>
+                    <div class="one_block">
+                        <div class="img_and_title_block">
+                            <img src="{% static '/img/iconfinder_flag-usa.png' %}">
+                            <p>+1 USA (US)</p>
+                        </div>
+                        <h1>19373077249</h1>
+                        <p>Количество смс: <strong>617</strong></p>
+                        <p>Номер добавлен: </p>
+                        <strong>20.04.2021</strong>
+                    </div>
+                    <div class="one_block">
+                        <div class="img_and_title_block">
+                            <img src="{% static '/img/iconfinder_flag-usa.png' %}">
+                            <p>+1 USA (US)</p>
+                        </div>
+                        <h1>19373077249</h1>
+                        <p>Количество смс: <strong>617</strong></p>
+                        <p>Номер добавлен: </p>
+                        <strong>20.04.2021</strong>
+                    </div>
+                </div>
+                <div class="one_block_free_number">
+                    <div class="one_block">
+                        <div class="img_and_title_block">
+                            <img src="{% static '/img/iconfinder_flag-usa.png' %}">
+                            <p>+1 USA (US)</p>
+                        </div>
+                        <h1>19373077249</h1>
+                        <p>Количество смс: <strong>617</strong></p>
+                        <p>Номер добавлен: </p>
+                        <strong>20.04.2021</strong>
+                    </div>
+                    <div class="one_block">
+                        <div class="img_and_title_block">
+                            <img src="{% static '/img/iconfinder_flag-usa.png' %}">
+                            <p>+1 USA (US)</p>
+                        </div>
+                        <h1>19373077249</h1>
+                        <p>Количество смс: <strong>617</strong></p>
+                        <p>Номер добавлен: </p>
+                        <strong>20.04.2021</strong>
+                    </div>
+                    <div class="one_block">
+                        <div class="img_and_title_block">
+                            <img src="{% static '/img/iconfinder_flag-usa.png' %}">
+                            <p>+1 USA (US)</p>
+                        </div>
+                        <h1>19373077249</h1>
+                        <p>Количество смс: <strong>617</strong></p>
+                        <p>Номер добавлен: </p>
+                        <strong>20.04.2021</strong>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% include 'include/footer_two.html' %}
+</body>
+</html>

@@ -1,0 +1,57 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>MAIN PAGE</title>
+
+    <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <script type="text/javascript" src="{% static 'fonts/change_limit.js' %}"></script>
+    <script src="{% static 'fonts/script.js' %}"></script>
+</head>
+<body>
+{% if reqister %}
+    {% include 'include/header_reg.html' %}
+{% else %}
+    {% include 'include/header_not_reg.html' %}
+{% endif %}
+<div class="conteiner">
+    <div class="wrapper">
+        <div class="conteiner_news">
+            <div class="news">
+                <div class="just_number">
+                    <h2>Активные номера</h2>
+                    <div class="about_just_number">
+                        <h1>Сервис</h1>
+                        <h3>Телефон</h3>
+                        <h4>СМС-код</h4>
+                    </div>
+                </div>
+                    {% for i in phone_num %}
+                        {% if i.sms_kod %}
+                            <div class="about_your_active">
+                                <h1>{{i.company}}</h1>
+                                <h3>{{i.phone}}</h3>
+                                <h4 id="{{ i.id }}">{{i.sms_kod}}</h4>
+                            </div>
+                        {% else %}
+                            <div class="about_your_active">
+                                <h1>{{i.price_number}}</h1>
+                                <h3>{{i.phone}}</h3>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% include 'include/footer_two.html' %}
+</body>
+</html>

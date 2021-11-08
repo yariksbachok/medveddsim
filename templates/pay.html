@@ -1,0 +1,58 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>MAIN PAGE</title>
+
+    <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <script src="{% static 'fonts/script.js' %}"></script>
+</head>
+<body>
+{% if reqister %}
+    {% include 'include/header_reg.html' %}
+{% else %}
+    {% include 'include/header_not_reg.html' %}
+{% endif %}
+<div class="conteiner">
+    <div class="wrapper">
+        <div class="conteiner_news">
+            <div class="news">
+                <div class="active_number">
+                    <h2>ПОПОЛНИТЬ БАЛАНС</h2>
+                    <br>
+                    <p>Баланс: <strong>0,00 руб.</strong></p>
+                </div>
+                <div class="content_pay">
+                    <div>
+                        <a href="https://qiwi.com/payment/form/99"><img src="{% static '/img/QiwiWallet.png' %}"></a>
+                    </div>
+                    <div>
+                        <a href="https://money.yandex.ru/quickpay/confirm.xml"><img src="{% static '/img/YandexMoney.png' %}"></a>
+                    </div>
+                    <div>
+                        <a href="https://merchant.webmoney.ru/lmi/payment.asp"><img src="{% static '/img/BankCard.png' %}"></a>
+                    </div>
+                    <div>
+                        <a href="https://merchant.webmoney.ru/lmi/payment.asp"><img src="{% static '/img/WebMoneyWMR.png' %}"></a>
+                    </div>
+                    <div>
+                        <a href="https://merchant.webmoney.ru/lmi/payment.asp"><img src="{% static '/img/WebMoneyWMZ.png' %}"></a>
+                    </div>
+                    <div>
+                        <a href="https://rf.cryptonator.com/merchant/invoice/cb6b2ec630d25d282beae763dad7f4b5"><img src="{% static '/img/Bitcoin.png' %}"></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+{% include 'include/footer_two.html' %}
+</html>
